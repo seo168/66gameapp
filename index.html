@@ -19,7 +19,7 @@
       --gold:#D4AF37; --gold2:#b99328; --red:#b10f2e; --red2:#7a0b20;
       --ring: rgba(212,175,55,.35); --shadow:0 12px 30px rgba(0,0,0,.5);
       --radius:20px; --max:1160px;
-      /* ukuran tinggi gambar NEWS khusus mobile (boleh ubah) */
+      /* tinggi gambar NEWS khusus mobile */
       --news-shot-h-mobile: 320px;
     }
     *{box-sizing:border-box}
@@ -75,7 +75,7 @@
     .trust{display:flex;gap:12px;flex-wrap:wrap;color:#f0dcc2;font-weight:700;margin:12px 0 0}
 
     /* Screenshot helper (9:16) */
-    .shot{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block}
+    .shot{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;object-position:center;}
 
     /* Phone mock */
     .mockup{display:grid;place-items:center}
@@ -107,12 +107,8 @@
 
     /* NEWS slider – touchable + overlay arrows + soft masks */
     .slider-wrap{margin-top:12px}
-    .slider{
-      position:relative;overflow:hidden;touch-action:pan-y;
-    }
-    /* edge fade */
-    .slider::before,
-    .slider::after{
+    .slider{position:relative;overflow:hidden;touch-action:pan-y;}
+    .slider::before,.slider::after{
       content:"";position:absolute;top:0;bottom:0;width:48px;pointer-events:none;z-index:2;
       background:linear-gradient(90deg, rgba(10,10,12,1) 0%, rgba(10,10,12,0) 100%);
     }
@@ -126,20 +122,20 @@
       radial-gradient(300px 160px at 80% 70%, rgba(177,15,46,.32) 0%, transparent 60%);}
     .slide .body{padding:12px}
 
-    /* Gambar NEWS: default (desktop/tablet) tetap penuh, mobile jadi lebih kecil */
-    /* default sudah pakai .shot: width:100%; aspect-ratio:9/16; height:auto */
+    /* NEWS images: desktop/tablet default; mobile: full-width crop center + height control */
     @media (max-width:640px){
+      #news .slide{display:block}
       #news .slide .shot{
-        height: var(--news-shot-h-mobile);
-        width: auto;
-        aspect-ratio: 9/16;
-        object-fit: cover;
-        margin-inline: auto;
-        display: block;
+        width:100%;
+        height:var(--news-shot-h-mobile);
+        object-fit:cover;
+        object-position:center;
+        margin:0 auto;
+        display:block;
       }
     }
 
-    /* Floating arrows: slightly blurred & translucent */
+    /* Floating arrows */
     .arrow{
       position:absolute;top:50%;transform:translateY(-50%);
       width:44px;height:44px;border-radius:999px;border:1px solid rgba(212,175,55,.35);
