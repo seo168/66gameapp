@@ -9,6 +9,7 @@
   <link rel="canonical" href="https://seo168.github.io/66gameapp/">
   <link rel="icon" href="static/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="static/apple-touch-icon.png">
+  <meta property="og:image" content="static/og-image.jpg">
   <base href="/66gameapp/">
 
   <style>
@@ -95,12 +96,16 @@
 
     /* NEWS slider – touchable + overlay arrows + soft masks */
     .slider-wrap{margin-top:12px}
-    .slider{position:relative;overflow:hidden}
+    .slider{
+      position:relative;overflow:hidden;touch-action:pan-y; /* FIX: allow vertical scroll while dragging horizontally */
+    }
     /* edge fade */
-    .slider::before,.slider::after{
+    .slider::before,
+    .slider::after{
       content:"";position:absolute;top:0;bottom:0;width:48px;pointer-events:none;z-index:2;
       background:linear-gradient(90deg, rgba(10,10,12,1) 0%, rgba(10,10,12,0) 100%);
     }
+    .slider::before{left:0;}               /* FIX: activate left fade */
     .slider::after{right:0;transform:scaleX(-1)}
     .slider-track{display:flex;gap:12px;transition:transform .35s ease;touch-action:pan-y;will-change:transform}
     .slide{min-width:85%;max-width:85%;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,.2);background:#120d10}
@@ -124,6 +129,7 @@
     .arrow--next{right:8px}
     .arrow svg{width:18px;height:18px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
     .slider-nav{display:none} /* hide old nav buttons */
+
     /* Download bar */
     .download{padding:22px 0;background:linear-gradient(180deg,#151219,#0b0a0d)}
     .download .box{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#151219;border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
@@ -210,22 +216,22 @@
             <div class="slider-track" id="newsTrack">
               <!-- 9:16 screenshots; fallback to gradient -->
               <article class="slide">
-                <img class="shot" src="static/screenshots/news1.jpg" alt="66game update 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img class="shot" src="static/screenshots/news1.jpg" alt="66game update 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
                 <div class="body"><h3>Update 1 — Faster loads</h3><p>Asset compression & smarter caching reduce initial load time.</p></div>
               </article>
               <article class="slide">
-                <img class="shot" src="static/screenshots/news2.jpg" alt="66game update 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img class="shot" src="static/screenshots/news2.jpg" alt="66game update 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
                 <div class="body"><h3>Update 2 — Data Saver</h3><p>Lower bitrate assets when on mobile data to keep spins smooth.</p></div>
               </article>
               <article class="slide">
-                <img class="shot" src="static/screenshots/news3.jpg" alt="66game update 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img class="shot" src="static/screenshots/news3.jpg" alt="66game update 3" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
                 <div class="body"><h3>Update 3 — Stability</h3><p>Improved FPS on entry-level Indian chipsets and older Androids.</p></div>
               </article>
               <article class="slide">
-                <img class="shot" src="static/screenshots/news4.jpg" alt="66game security" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img class="shot" src="static/screenshots/news4.jpg" alt="66game security" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
                 <div class="body"><h3>Security</h3><p>Signed releases with checksum guidance for safe installs.</p></div>
               </article>
