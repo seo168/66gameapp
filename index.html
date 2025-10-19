@@ -10,181 +10,152 @@
   <!-- IMPORTANT for GitHub Pages project page paths -->
   <base href="/66gameapp/">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="66game App — Download 66game APK (Official) in India" />
-  <meta property="og:description" content="Get the verified 66game APK. Optimized slot performance for India." />
-  <meta property="og:url" content="https://seo168.github.io/66gameapp/">
-  <meta name="theme-color" content="#0b0f12" />
-
-  <!-- JSON-LD: Website + SoftwareApplication + FAQ + Breadcrumbs -->
+  <!-- Schema: Website + SoftwareApplication + FAQ + Breadcrumbs -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://seo168.github.io/66gameapp/",
-    "name": "66game App (Official)",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://seo168.github.io/66gameapp/?q={query}",
-      "query-input": "required name=query"
-    }
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"66game App (Official)","url":"https://seo168.github.io/66gameapp/"}
   </script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"SoftwareApplication",
-    "name":"66game",
-    "operatingSystem":"Android",
-    "applicationCategory":"GameApplication",
-    "applicationSubCategory":"SlotApplication",
-    "countriesSupported":"IN",
-    "downloadUrl":"download/66game.apk",
-    "offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}
-  }
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"66game","operatingSystem":"Android","applicationCategory":"GameApplication","applicationSubCategory":"SlotApplication","countriesSupported":"IN","downloadUrl":"download/66game.apk","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}
   </script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Is the 66game APK safe?",
-       "acceptedAnswer":{"@type":"Answer","text":"Yes. The APK here is official and signed. Always verify checksum and install on Android 8.0+."}},
-      {"@type":"Question","name":"What Android version is supported?",
-       "acceptedAnswer":{"@type":"Answer","text":"Android 8.0 or higher recommended. The 66 game app is tuned for popular Indian devices."}},
-      {"@type":"Question","name":"How to update the 66 game app?",
-       "acceptedAnswer":{"@type":"Answer","text":"Download the latest 66game APK from this page and install it over your current version."}}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://seo168.github.io/66gameapp/"},
-      {"@type":"ListItem","position":2,"name":"Download","item":"https://seo168.github.io/66gameapp/#download"},
-      {"@type":"ListItem","position":3,"name":"66game APK","item":"https://seo168.github.io/66gameapp/#download"}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Is the 66game APK safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. The APK here is official and signed. Verify checksum and install on Android 8.0+."}},
+    {"@type":"Question","name":"What Android version is supported?","acceptedAnswer":{"@type":"Answer","text":"Android 8.0 or higher recommended. Tuned for popular Indian devices."}},
+    {"@type":"Question","name":"How to update the 66 game app?","acceptedAnswer":{"@type":"Answer","text":"Download the latest 66game APK from this page and install it over your current version."}}
+  ]}
   </script>
 
   <style>
     :root{
-      --bg:#0b0f12; --bg2:#0d1318; --card:#0f1720; --line:#203040;
-      --text:#eaf1f7; --muted:#a9b5bf; --brand:#19b86b; --brand2:#13a05c;
-      --ring: rgba(25,184,107,.35); --shadow:0 12px 30px rgba(0,0,0,.45);
+      /* Elegant theme: dark base, gold + deep red accents */
+      --bg:#0a0a0c; --bg2:#0d0d12; --card:#121217; --line:#2b2230;
+      --text:#f6f2ea; --muted:#c9c2b8;
+      --gold:#D4AF37; --gold2:#b99328; --red:#b10f2e; --red2:#7a0b20;
+      --ring: rgba(212,175,55,.35); --shadow:0 12px 30px rgba(0,0,0,.5);
       --radius:20px; --max:1160px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;scroll-behavior:smooth}
+    html,body{margin:0;background:radial-gradient(1200px 600px at 100% -10%,#2b0e17 0%,transparent 55%), radial-gradient(1200px 600px at -10% 110%,#2b2a13 0%,transparent 55%), linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
     .max{max-width:var(--max);margin-inline:auto;padding:0 16px}
 
-    /* Header / Nav */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(9,13,16,.65);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px}
-    .brand{font-weight:900;font-size:20px;padding:8px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+    /* Top bar + Logo slot */
+    .site-header{position:sticky;top:0;z-index:60;background:rgba(10,10,12,.65);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.15)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+    .logo-slot{
+      display:flex;align-items:center;gap:10px;background:#18161b;border:1px solid rgba(212,175,55,.25);
+      padding:8px 12px;border-radius:14px;box-shadow:var(--shadow)
+    }
+    .logo-slot img{height:34px;width:auto;display:block}
+    .logo-fallback{font-weight:900;letter-spacing:.5px;background:linear-gradient(180deg,var(--gold),#fff1c4);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav{display:flex;align-items:center;gap:12px}
-    #navToggle{display:none;background:var(--card);border:1px solid var(--line);border-radius:12px;color:#fff;padding:10px 12px;cursor:pointer}
+    #navToggle{display:none;background:#18161b;border:1px solid rgba(212,175,55,.25);border-radius:12px;color:#fff;padding:10px 12px;cursor:pointer}
     #navMenu{display:flex;list-style:none;gap:8px;margin:0;padding:0}
-    #navMenu a{display:block;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line)}
+    #navMenu a{display:block;padding:10px 12px;border-radius:12px;background:#18161b;border:1px solid rgba(212,175,55,.2)}
+    #navMenu a:hover{outline:2px solid rgba(212,175,55,.25)}
     .has-sub{position:relative}
-    .has-sub .submenu{position:absolute;top:100%;left:0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;list-style:none;display:none;box-shadow:var(--shadow);min-width:180px}
+    .has-sub .submenu{
+      position:absolute;top:100%;left:0;margin-top:6px;list-style:none;background:#151219;border:1px solid rgba(212,175,55,.25);
+      border-radius:12px;padding:8px;display:none;min-width:200px;box-shadow:var(--shadow)
+    }
     .has-sub:hover .submenu{display:block}
     @media(max-width:760px){
       #navToggle{display:block}
-      #navMenu{display:none;position:absolute;right:16px;top:58px;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px}
+      #navMenu{display:none;position:absolute;right:16px;top:58px;flex-direction:column;background:#151219;border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:12px}
       .nav.open #navMenu{display:flex}
       .has-sub .submenu{position:static;display:block;background:transparent;border:none;box-shadow:none;padding:0}
     }
 
+    /* Buttons (gold→red) */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:999px;border:1px solid rgba(212,175,55,.3);box-shadow:var(--shadow);font-weight:800;cursor:pointer}
+    .btn.primary{background:linear-gradient(180deg,var(--gold),var(--red));color:#2b0d11}
+    .btn.primary:hover{filter:brightness(1.07)}
+    .btn.ghost{background:#18161b;color:#f6f2ea}
+    .btn.xl{padding:16px 24px;font-size:18px}
+    .btn:focus-visible{outline:3px solid var(--ring)}
+
     /* Hero */
-    .hero{padding:38px 0 10px;border-bottom:1px solid #132029}
+    .hero{padding:38px 0 10px;border-bottom:1px solid rgba(212,175,55,.15)}
     .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
     @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
     h1{font-size:clamp(28px,4.5vw,48px);line-height:1.1;margin:0 0 10px}
-    h1 span{color:var(--brand)}
+    h1 .gold{color:var(--gold)} h1 .red{color:#ff4d5a}
     .lead{color:var(--muted);max-width:65ch}
-    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 18px;border-radius:999px;border:1px solid #1d2b36;box-shadow:var(--shadow);font-weight:800;cursor:pointer}
-    .btn.primary{background:linear-gradient(180deg,var(--brand),var(--brand2));color:#072814}
-    .btn.ghost{background:var(--card);color:#eaf1f7}
-    .btn.xl{padding:16px 24px;font-size:18px}
-    .btn:focus-visible{outline:3px solid var(--ring)}
-    .trust{display:flex;gap:12px;flex-wrap:wrap;color:#a9c0b0;font-weight:700;margin:12px 0 0}
+    .trust{display:flex;gap:12px;flex-wrap:wrap;color:#f0dcc2;font-weight:700;margin:12px 0 0}
 
-    /* Phone mock: 9:16 portrait feel on mobile */
+    /* Phone mock 9:16 */
     .mockup{display:grid;place-items:center}
-    .phone{width:min(320px,86vw);aspect-ratio:9/16;background:#0a0f14;border-radius:28px;border:1px solid #1f3340;box-shadow:var(--shadow);padding:10px;position:relative}
-    .notch{position:absolute;left:50%;transform:translateX(-50%);top:6px;width:40%;height:10px;background:var(--card);border-radius:0 0 12px 12px;border:1px solid var(--line)}
-    .screen{width:100%;height:100%;border-radius:20px;overflow:hidden;background:#09121a}
+    .phone{width:min(320px,86vw);aspect-ratio:9/16;background:#0d0a0f;border-radius:30px;border:1px solid rgba(212,175,55,.25);box-shadow:0 20px 50px rgba(0,0,0,.6);padding:10px;position:relative}
+    .notch{position:absolute;left:50%;transform:translateX(-50%);top:6px;width:40%;height:10px;background:#1a151c;border-radius:0 0 12px 12px;border:1px solid rgba(212,175,55,.15)}
+    .screen{width:100%;height:100%;border-radius:22px;overflow:hidden;background:#0a0a0c}
     .screen-art{width:100%;height:100%;background:
-      radial-gradient(60% 40% at 50% 40%,#1e2bff22 0%,transparent 60%),
-      radial-gradient(60% 40% at 70% 70%,#19b86b33 0%,transparent 60%),
-      linear-gradient(180deg,#0a1220,#0b0f12);
+      radial-gradient(60% 40% at 50% 40%,rgba(212,175,55,.25) 0%,transparent 60%),
+      radial-gradient(60% 40% at 70% 70%,rgba(177,15,46,.25) 0%,transparent 60%),
+      linear-gradient(180deg,#100c10,#0b0a0d);
     }
 
     /* Badges */
     .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px auto 0}
     @media(max-width:900px){.badges{grid-template-columns:repeat(2,1fr)}}
-    .badge{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;text-align:center;font-weight:800}
+    .badge{background:#17141a;border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:10px;text-align:center;font-weight:800}
 
     /* Sections / Cards / Grid */
-    .section{padding:26px 0;border-bottom:1px solid #132029}
-    .section h2{font-size:clamp(22px,3.2vw,32px);margin:0 0 12px}
+    .section{padding:26px 0;border-bottom:1px solid rgba(212,175,55,.12)}
+    .section h2{font-size:clamp(22px,3.2vw,32px);margin:0 0 12px;background:linear-gradient(180deg,#fff3cc,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
     @media(max-width:960px){.grid3{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.grid3{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+    .card{background:#151219;border:1px solid rgba(212,175,55,.18);border-radius:16px;padding:16px}
 
     .two{display:grid;grid-template-columns:1fr .9fr;gap:12px}
     @media(max-width:900px){.two{grid-template-columns:1fr}}
     .steps{counter-reset:s;list-style:none;padding-left:0}
-    .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0;position:relative}
-    .steps li::before{content:counter(s);position:absolute;left:-10px;top:-10px;background:var(--brand);color:#062c16;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:900;border:2px solid var(--card)}
+    .steps li{counter-increment:s;background:#151219;border:1px solid rgba(212,175,55,.18);border-radius:14px;padding:12px;margin:8px 0;position:relative}
+    .steps li::before{content:counter(s);position:absolute;left:-10px;top:-10px;background:linear-gradient(180deg,var(--gold),var(--red));color:#220a0d;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:900;border:2px solid #151219}
     .check{align-self:start}
     .tick{list-style:none;padding-left:0}
     .tick li{padding-left:20px;position:relative}
-    .tick li::before{content:'✓';position:absolute;left:0;color:var(--brand)}
+    .tick li::before{content:'✓';position:absolute;left:0;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
 
-    /* FAQ */
-    details.faq{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;padding:12px}
-    summary{cursor:pointer;font-weight:800}
-
-    /* NEWS slider (no external images, gradient cards) */
+    /* NEWS slider (gradient thumbs) */
     .slider-wrap{margin-top:12px}
     .slider{position:relative;overflow:hidden}
     .slider-track{display:flex;gap:12px;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
-    .slide{min-width:85%;max-width:85%;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#0f1b28,#0c1016)}
-    .slide .thumb{aspect-ratio:16/9;background:
-      radial-gradient(circle at 20% 30%, #1e90ff22 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, #19b86b33 0%, transparent 55%);}
-    .slide .body{padding:12px}
+    .slide{min-width:85%;max-width:85%;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,.2);background:linear-gradient(135deg,#1a1116,#120d10)}
     @media(min-width:1024px){.slide{min-width:48%;max-width:48%}}
+    .slide .thumb{aspect-ratio:16/9;background:
+      radial-gradient(300px 160px at 20% 30%, rgba(212,175,55,.32) 0%, transparent 60%),
+      radial-gradient(300px 160px at 80% 70%, rgba(177,15,46,.32) 0%, transparent 60%);}
+    .slide .body{padding:12px}
 
     .slider-nav{display:flex;justify-content:space-between;margin-top:8px}
-    .btn.ghost{border-color:#2a3a48}
+    .btn.ghost{border-color:rgba(212,175,55,.3)}
 
     /* Download bar */
-    .download{padding:22px 0;background:linear-gradient(180deg,#0f1720,#0b0f12)}
-    .download .box{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .download{padding:22px 0;background:linear-gradient(180deg,#151219,#0b0a0d)}
+    .download .box{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#151219;border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
     @media(max-width:720px){.download .box{flex-direction:column;align-items:flex-start}}
 
     /* Footer */
-    .site-footer{padding:24px 0;border-top:1px solid #132029}
+    .site-footer{padding:24px 0;border-top:1px solid rgba(212,175,55,.12)}
     .fgrid{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}
     .fnav{display:flex;gap:10px;flex-wrap:wrap}
-    .copy{color:#a9b5bf}
+    .copy{color:#e7dac0}
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header with LOGO SLOT -->
   <header class="site-header">
-    <div class="row max">
-      <a class="brand" href="#top" aria-label="66game home">66game</a>
+    <div class="bar max">
+      <!-- ======= PLACE YOUR LOGO FILE HERE ======= 
+           Put your logo at: /static/logo-66game.png  (PNG/SVG recommended)
+           Width auto, height 34px by default.
+      -->
+      <a class="logo-slot" href="#top" aria-label="66game home">
+        <img src="static/logo-66game.png" alt="66game logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block'">
+        <span class="logo-fallback" style="display:none">66game</span>
+      </a>
+
       <nav class="nav" aria-label="Primary">
         <button id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
         <ul id="navMenu">
@@ -210,7 +181,7 @@
     <section class="hero">
       <div class="max hero-grid">
         <div>
-          <h1>Download <span>66game App</span> — Official <span>66game APK</span> for India</h1>
+          <h1>Download <span class="gold">66game App</span> — Official <span class="red">66game APK</span> for India</h1>
           <p class="lead">Faster spins, lighter updates, and secure builds. The <strong>66 game app</strong> is tuned for Indian 4G/5G and entry-level chipsets.</p>
           <div class="cta-row">
             <a class="btn primary" href="download/66game.apk" id="dlTop" rel="nofollow">Download 66game APK</a>
@@ -240,22 +211,10 @@
         <div class="slider-wrap">
           <div class="slider">
             <div class="slider-track" id="newsTrack">
-              <article class="slide">
-                <div class="thumb"></div>
-                <div class="body"><h3>Update 1 — Faster loads</h3><p>Asset compression & smarter caching reduce initial load time for the 66 game app.</p></div>
-              </article>
-              <article class="slide">
-                <div class="thumb"></div>
-                <div class="body"><h3>Update 2 — Data Saver</h3><p>Lower bitrate assets when on mobile data to keep spins smooth.</p></div>
-              </article>
-              <article class="slide">
-                <div class="thumb"></div>
-                <div class="body"><h3>Update 3 — Slot stability</h3><p>Improved FPS on entry-level Indian chipsets and older Androids.</p></div>
-              </article>
-              <article class="slide">
-                <div class="thumb"></div>
-                <div class="body"><h3>Security</h3><p>Signed releases with checksum guidance for safe 66game APK installs.</p></div>
-              </article>
+              <article class="slide"><div class="thumb"></div><div class="body"><h3>Update 1 — Faster loads</h3><p>Asset compression & smarter caching reduce initial load time.</p></div></article>
+              <article class="slide"><div class="thumb"></div><div class="body"><h3>Update 2 — Data Saver</h3><p>Lower bitrate assets when on mobile data to keep spins smooth.</p></div></article>
+              <article class="slide"><div class="thumb"></div><div class="body"><h3>Update 3 — Stability</h3><p>Improved FPS on entry-level Indian chipsets and older Androids.</p></div></article>
+              <article class="slide"><div class="thumb"></div><div class="body"><h3>Security</h3><p>Signed releases with checksum guidance for safe installs.</p></div></article>
             </div>
           </div>
           <div class="slider-nav">
@@ -275,37 +234,27 @@
             <h3>How to install (Android 8+)</h3>
             <ol class="steps">
               <li>Tap <a href="download/66game.apk"><strong>Download 66game APK</strong></a>.</li>
-              <li>Open the file → allow “Install unknown apps”.</li>
-              <li>Launch the app → sign in and enable updates.</li>
+              <li>Open file → allow “Install unknown apps”.</li>
+              <li>Launch app → sign in and enable updates.</li>
             </ol>
           </article>
-          <article class="card">
-            <h3>Bankroll basics</h3>
-            <p>Set sensible bet size, plan session length, and schedule cooldowns. Use reminders in the app; play responsibly.</p>
-          </article>
-          <article class="card">
-            <h3>Data saver tips</h3>
-            <p>Enable Data Saver in settings, prefer Wi-Fi for big patches, and keep at least 200 MB free storage.</p>
-          </article>
+          <article class="card"><h3>Bankroll basics</h3><p>Set bet size, session length, and cooldowns. Use in-app reminders; play responsibly.</p></article>
+          <article class="card"><h3>Data saver tips</h3><p>Enable Data Saver, prefer Wi-Fi for patches, keep ≥200 MB free space.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- HOW (separate block for anchors in submenu) -->
+    <!-- HOW (submenu anchor) -->
     <section class="section" id="how">
       <div class="max two">
         <div class="card">
-          <h2>Install the <em>66game</em> app in minutes</h2>
-          <p>Use the official 66game APK link only. The package is signed and verified for India.</p>
+          <h2>Install the <span class="gold">66game</span> app in minutes</h2>
+          <p>Use the official link only. Package is signed & verified for India.</p>
           <div class="cta-row"><a class="btn primary" href="download/66game.apk" rel="nofollow">Get APK Now</a></div>
         </div>
         <div class="card check">
           <h3>Quick checks</h3>
-          <ul class="tick">
-            <li>Android 8.0+ device</li>
-            <li>Free space ≥ 200 MB</li>
-            <li>Stable network (Wi-Fi preferred)</li>
-          </ul>
+          <ul class="tick"><li>Android 8.0+ device</li><li>Free space ≥ 200 MB</li><li>Stable network (Wi-Fi preferred)</li></ul>
         </div>
       </div>
     </section>
@@ -319,7 +268,7 @@
           <ul>
             <li>APK size −14% (new texture packing)</li>
             <li>Reel FPS +20% on common Indian chipsets</li>
-            <li>Improved integrity checks and signed bundles</li>
+            <li>Stronger integrity checks & signed bundles</li>
           </ul>
           <a class="btn primary" href="download/66game.apk" rel="nofollow">Download 66game APK</a>
         </article>
@@ -332,7 +281,7 @@
         <h2>Frequently asked questions</h2>
         <details class="faq"><summary>Is the 66game APK safe in India?</summary><p>Yes. This is the official signed package. Verify checksum before install.</p></details>
         <details class="faq"><summary>Will updates remove my data?</summary><p>No. Install the new version over the current one; your data remains.</p></details>
-        <details class="faq"><summary>How to reduce data usage?</summary><p>Enable Data Saver, use Wi-Fi for patches, and close background apps during download.</p></details>
+        <details class="faq"><summary>How to reduce data usage?</summary><p>Enable Data Saver, use Wi-Fi for patches, and close background apps.</p></details>
       </div>
     </section>
 
@@ -352,13 +301,7 @@
   <footer class="site-footer">
     <div class="max fgrid">
       <div class="fbrand">66game</div>
-      <nav class="fnav">
-        <a href="#news">News</a>
-        <a href="#guides">Guides</a>
-        <a href="#updates">Updates</a>
-        <a href="#faq">FAQ</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
+      <nav class="fnav"><a href="#news">News</a><a href="#guides">Guides</a><a href="#updates">Updates</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a></nav>
       <p class="copy">© <span id="year"></span> 66game — India.</p>
     </div>
   </footer>
