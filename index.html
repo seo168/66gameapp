@@ -9,17 +9,6 @@
   <link rel="canonical" href="https://seo168.github.io/66gameapp/">
   <base href="/66gameapp/">
 
-  <!-- Schema (ringkas) -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"66game","operatingSystem":"Android","applicationCategory":"GameApplication","applicationSubCategory":"SlotApplication","countriesSupported":"IN","downloadUrl":"download/66game.apk","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Is the 66game APK safe?","acceptedAnswer":{"@type":"Answer","text":"Yes. Official signed APK. Verify checksum; Android 8.0+."}},
-    {"@type":"Question","name":"How to update?","acceptedAnswer":{"@type":"Answer","text":"Download the new 66game APK here and install over the current app."}}
-  ]}
-  </script>
-
   <style>
     :root{
       --bg:#0a0a0c; --bg2:#0d0d12; --card:#121217; --line:#2b2230;
@@ -72,7 +61,7 @@
     .trust{display:flex;gap:12px;flex-wrap:wrap;color:#f0dcc2;font-weight:700;margin:12px 0 0}
 
     /* Screenshot helper (9:16) */
-    .shot{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;border-radius:0}
+    .shot{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block}
 
     /* Phone mock */
     .mockup{display:grid;place-items:center}
@@ -85,11 +74,6 @@
       linear-gradient(180deg,#100c10,#0b0a0d);
     }
 
-    /* Badges */
-    .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px auto 0}
-    @media(max-width:900px){.badges{grid-template-columns:repeat(2,1fr)}}
-    .badge{background:#17141a;border:1px solid rgba(212,175,55,.25);border-radius:14px;padding:10px;text-align:center;font-weight:800}
-
     /* Sections / Cards */
     .section{padding:26px 0;border-bottom:1px solid rgba(212,175,55,.12)}
     .section h2{font-size:clamp(22px,3.2vw,32px);margin:0 0 12px;background:linear-gradient(180deg,#fff3cc,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -97,7 +81,6 @@
     @media(max-width:960px){.grid3{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.grid3{grid-template-columns:1fr}}
     .card{background:#151219;border:1px solid rgba(212,175,55,.18);border-radius:16px;padding:16px}
-
     .two{display:grid;grid-template-columns:1fr .9fr;gap:12px}
     @media(max-width:900px){.two{grid-template-columns:1fr}}
     .steps{counter-reset:s;list-style:none;padding-left:0}
@@ -108,18 +91,37 @@
     .tick li{padding-left:20px;position:relative}
     .tick li::before{content:'✓';position:absolute;left:0;background:linear-gradient(180deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900}
 
-    /* News slider */
+    /* NEWS slider – touchable + overlay arrows + soft masks */
     .slider-wrap{margin-top:12px}
     .slider{position:relative;overflow:hidden}
-    .slider-track{display:flex;gap:12px;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+    /* edge fade */
+    .slider::before,.slider::after{
+      content:"";position:absolute;top:0;bottom:0;width:48px;pointer-events:none;z-index:2;
+      background:linear-gradient(90deg, rgba(10,10,12,1) 0%, rgba(10,10,12,0) 100%);
+    }
+    .slider::after{right:0;transform:scaleX(-1)}
+    .slider-track{display:flex;gap:12px;transition:transform .35s ease;touch-action:pan-y;will-change:transform}
     .slide{min-width:85%;max-width:85%;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,.2);background:#120d10}
     @media(min-width:1024px){.slide{min-width:48%;max-width:48%}}
     .slide .thumb{aspect-ratio:9/16;background:
       radial-gradient(300px 160px at 20% 30%, rgba(212,175,55,.32) 0%, transparent 60%),
       radial-gradient(300px 160px at 80% 70%, rgba(177,15,46,.32) 0%, transparent 60%);}
     .slide .body{padding:12px}
-    .slider-nav{display:flex;justify-content:space-between;margin-top:8px}
 
+    /* Floating arrows: slightly blurred & translucent */
+    .arrow{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:44px;height:44px;border-radius:999px;border:1px solid rgba(212,175,55,.35);
+      display:grid;place-items:center;z-index:3;cursor:pointer;
+      background:linear-gradient(180deg, rgba(212,175,55,.35), rgba(177,15,46,.35));
+      color:#2b0d11; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+      opacity:.68; transition:opacity .2s ease, transform .2s ease;
+    }
+    .arrow:hover{opacity:1; transform:translateY(-50%) scale(1.03)}
+    .arrow--prev{left:8px}
+    .arrow--next{right:8px}
+    .arrow svg{width:18px;height:18px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+    .slider-nav{display:none} /* hide old nav buttons */
     /* Download bar */
     .download{padding:22px 0;background:linear-gradient(180deg,#151219,#0b0a0d)}
     .download .box{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#151219;border:1px solid rgba(212,175,55,.25);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
@@ -133,7 +135,7 @@
   </style>
 </head>
 <body>
-  <!-- Header + LOGO -->
+  <!-- Header -->
   <header class="site-header">
     <div class="bar max">
       <a class="logo-slot" href="#top" aria-label="66game home">
@@ -174,14 +176,10 @@
           <ul class="trust"><li>✔ Signed APK</li><li>✔ Low data usage</li><li>✔ Android 8.0+</li></ul>
         </div>
         <div class="mockup" aria-label="66game app preview">
-          <div class="phone">
-            <div class="notch"></div>
-            <div class="screen">
-              <!-- Try to load your screenshot; fallback to gradient if missing -->
-              <img class="shot" src="static/screenshots/hero-shot.jpg" alt="66game app mobile screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-              <div class="screen-art" style="display:none"></div>
-            </div>
-          </div>
+          <div class="phone"><div class="notch"></div><div class="screen">
+            <img class="shot" src="static/screenshots/hero-shot.jpg" alt="66game app screenshot" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div class="screen-art" style="display:none"></div>
+          </div></div>
         </div>
       </div>
       <div class="badges max">
@@ -189,14 +187,24 @@
       </div>
     </section>
 
-    <!-- NEWS: each card uses 9:16 screenshot -->
+    <!-- NEWS -->
     <section class="section" id="news">
       <div class="max">
         <h2>66game News — Slot App in India</h2>
-        <p class="lead">Latest improvements for Indian networks and devices across the <strong>66game</strong> ecosystem.</p>
+        <p class="lead">Latest improvements for Indian networks and devices.</p>
+
         <div class="slider-wrap">
-          <div class="slider">
+          <div class="slider" id="slider">
+            <!-- soft-blur floating arrows -->
+            <button class="arrow arrow--prev" id="newsPrev" aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14.5 5l-7 7 7 7" stroke="#2b0d11" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="arrow arrow--next" id="newsNext" aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9.5 5l7 7-7 7" stroke="#2b0d11" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
             <div class="slider-track" id="newsTrack">
+              <!-- 9:16 screenshots; fallback to gradient -->
               <article class="slide">
                 <img class="shot" src="static/screenshots/news1.jpg" alt="66game update 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
@@ -219,11 +227,8 @@
               </article>
             </div>
           </div>
-          <div class="slider-nav">
-            <button class="btn ghost" id="newsPrev">◀ Prev</button>
-            <button class="btn ghost" id="newsNext">Next ▶</button>
-          </div>
         </div>
+
       </div>
     </section>
 
@@ -236,8 +241,8 @@
             <h3>How to install (Android 8+)</h3>
             <ol class="steps">
               <li>Tap <a href="download/66game.apk"><strong>Download 66game APK</strong></a>.</li>
-              <li>Open the file → allow “Install unknown apps”.</li>
-              <li>Launch the app → sign in and enable updates.</li>
+              <li>Open file → allow “Install unknown apps”.</li>
+              <li>Launch app → sign in and enable updates.</li>
             </ol>
           </article>
           <article class="card"><h3>Bankroll basics</h3><p>Set bet size, session length, and cooldowns. Use in-app reminders; play responsibly.</p></article>
@@ -267,9 +272,7 @@
         <h2>66game App Updates & Changelog</h2>
         <article class="card">
           <h3>v1.2.5 — Current (Recommended)</h3>
-          <ul>
-            <li>APK size −14%</li><li>Reel FPS +20%</li><li>Stronger integrity checks</li>
-          </ul>
+          <ul><li>APK size −14%</li><li>Reel FPS +20%</li><li>Stronger integrity checks</li></ul>
           <a class="btn primary" href="download/66game.apk" rel="nofollow">Download 66game APK</a>
         </article>
       </div>
@@ -310,12 +313,64 @@
     (function(){const nav=document.querySelector('.nav'); const btn=document.getElementById('navToggle'); if(!nav||!btn)return; btn.addEventListener('click',()=>{const open=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',open?'true':'false');});}());
     // UTM
     (function(){const a=document.getElementById('dlTop'); if(!a) return; if(!location.search.includes('utm_source')){const u=new URL(a.href,location.href); u.searchParams.set('utm_source','landing');u.searchParams.set('utm_medium','cta');u.searchParams.set('utm_campaign','in-slot'); a.href=u.toString();}})();
-    // Slider
-    (function(){const track=document.getElementById('newsTrack'); if(!track)return; const slides=[...track.children]; let i=0;
-      function setIndex(idx){i=Math.max(0,Math.min(idx,slides.length-1)); const w=slides[0].getBoundingClientRect().width+12; track.style.transform=`translateX(-${i*w}px)`;}
-      document.getElementById('newsPrev').addEventListener('click',()=>setIndex(i-1));
-      document.getElementById('newsNext').addEventListener('click',()=>setIndex(i+1));
-      setIndex(0); new ResizeObserver(()=>setIndex(i)).observe(track);
+
+    // === TOUCH / DRAG slider ===
+    (function(){
+      const track = document.getElementById('newsTrack');
+      const slider = document.getElementById('slider');
+      if(!track || !slider) return;
+
+      const slides = [...track.children];
+      let i = 0, startX = 0, currX = 0, isDown = false, base = 0, width = 0;
+
+      function unit(){ return slides[0].getBoundingClientRect().width + 12; }
+      function clamp(v,min,max){ return Math.max(min, Math.min(v, max)); }
+      function go(idx, snap=true){
+        i = clamp(idx, 0, slides.length-1);
+        base = -i * unit();
+        if(snap){ track.style.transition = 'transform .35s ease'; }
+        track.style.transform = `translateX(${base}px)`;
+      }
+
+      function start(clientX){
+        isDown = true; startX = clientX; currX = clientX; width = unit();
+        track.style.transition = 'none';
+      }
+      function move(clientX){
+        if(!isDown) return;
+        currX = clientX;
+        const dx = currX - startX;
+        const maxLeft = 0, maxRight = -(slides.length-1)*width;
+        const pos = clamp(base + dx, maxRight-40, maxLeft+40); // small rubber band
+        track.style.transform = `translateX(${pos}px)`;
+      }
+      function end(){
+        if(!isDown) return;
+        const dx = currX - startX;
+        if (Math.abs(dx) > width*0.25) {
+          go(i + (dx<0 ? 1 : -1));
+        } else {
+          go(i);
+        }
+        isDown = false;
+      }
+
+      // Pointer/touch/mouse
+      slider.addEventListener('pointerdown', e=>{ if(e.pointerType!=='mouse' || e.buttons===1){ slider.setPointerCapture(e.pointerId); start(e.clientX);} }, {passive:true});
+      slider.addEventListener('pointermove', e=>move(e.clientX), {passive:true});
+      slider.addEventListener('pointerup',   end, {passive:true});
+      slider.addEventListener('pointercancel', end, {passive:true});
+      // Prevent image drag ghost
+      slider.querySelectorAll('img').forEach(img=>img.draggable=false);
+
+      // Buttons
+      document.getElementById('newsPrev').addEventListener('click', ()=> go(i-1));
+      document.getElementById('newsNext').addEventListener('click', ()=> go(i+1));
+
+      // Init & on resize
+      function init(){ go(0,false); }
+      new ResizeObserver(init).observe(track);
+      init();
     }());
   </script>
 </body>
