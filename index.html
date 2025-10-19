@@ -28,8 +28,11 @@
     /* Header + logo */
     .site-header{position:sticky;top:0;z-index:60;background:rgba(10,10,12,.65);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,175,55,.15)}
     .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
-    .logo-slot{display:flex;align-items:center;gap:10px;background:transparent;border:none;boc-shadow:none;padding:4px 6px;}
+    .logo-slot{display:flex;align-items:center;gap:10px;background:transparent;border:none;box-shadow:none;padding:4px 6px;}
     .logo-slot img{height:34px;width:auto;display:block}
+    .brand-text{font-weight:900;letter-spacing:.5px;line-height:1;font-size:20px;text-transform:uppercase;background:linear-gradient(180deg,var(--gold),#fff1c4);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;}
+    @media (max-width;420px){ .brand-text{font-size:18px} }
+    @media (max-width:340px){ .brand-text{display:none} }
     .logo-fallback{font-weight:900;letter-spacing:.5px;background:linear-gradient(180deg,var(--gold),#fff1c4);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav{display:flex;align-items:center;gap:12px}
     #navToggle{display:none;background:#18161b;border:1px solid rgba(212,175,55,.25);border-radius:12px;color:#fff;padding:10px 12px;cursor:pointer}
@@ -151,6 +154,7 @@
           <source srcset="static/logo-66game.webp" type="image/webp">
           <img src="static/logo-66game.png" alt="66game logo" style="height:34px;width:auto">
         </picture>
+        <span class="brand-text">66game</span>
       </a>
       <nav class="nav" aria-label="Primary">
         <button id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
