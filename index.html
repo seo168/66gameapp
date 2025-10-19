@@ -19,6 +19,8 @@
       --gold:#D4AF37; --gold2:#b99328; --red:#b10f2e; --red2:#7a0b20;
       --ring: rgba(212,175,55,.35); --shadow:0 12px 30px rgba(0,0,0,.5);
       --radius:20px; --max:1160px;
+      /* ukuran tinggi gambar NEWS khusus mobile (boleh ubah) */
+      --news-shot-h-mobile: 280px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:radial-gradient(1200px 600px at 100% -10%,#2b0e17 0%,transparent 55%), radial-gradient(1200px 600px at -10% 110%,#2b2a13 0%,transparent 55%), linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;scroll-behavior:smooth}
@@ -30,8 +32,14 @@
     .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
     .logo-slot{display:flex;align-items:center;gap:10px;background:transparent;border:none;box-shadow:none;padding:4px 6px;}
     .logo-slot img{height:34px;width:auto;display:block}
-    .brand-text{font-weight:900;letter-spacing:.5px;line-height:1;font-size:20px;text-transform:uppercase;background:linear-gradient(180deg,var(--gold),#fff1c4);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;}
-    @media (max-width;420px){ .brand-text{font-size:18px} }
+    .brand-text{
+      font-weight:900;letter-spacing:.5px;line-height:1;font-size:20px;
+      text-transform:uppercase;
+      background:linear-gradient(180deg,var(--gold),#fff1c4);
+      -webkit-background-clip:text;background-clip:text;
+      color:transparent;white-space:nowrap;
+    }
+    @media (max-width:420px){ .brand-text{font-size:18px} }
     @media (max-width:340px){ .brand-text{display:none} }
     .logo-fallback{font-weight:900;letter-spacing:.5px;background:linear-gradient(180deg,var(--gold),#fff1c4);-webkit-background-clip:text;background-clip:text;color:transparent}
     .nav{display:flex;align-items:center;gap:12px}
@@ -100,7 +108,7 @@
     /* NEWS slider – touchable + overlay arrows + soft masks */
     .slider-wrap{margin-top:12px}
     .slider{
-      position:relative;overflow:hidden;touch-action:pan-y; /* FIX: allow vertical scroll while dragging horizontally */
+      position:relative;overflow:hidden;touch-action:pan-y;
     }
     /* edge fade */
     .slider::before,
@@ -108,7 +116,7 @@
       content:"";position:absolute;top:0;bottom:0;width:48px;pointer-events:none;z-index:2;
       background:linear-gradient(90deg, rgba(10,10,12,1) 0%, rgba(10,10,12,0) 100%);
     }
-    .slider::before{left:0;}               /* FIX: activate left fade */
+    .slider::before{left:0;}
     .slider::after{right:0;transform:scaleX(-1)}
     .slider-track{display:flex;gap:12px;transition:transform .35s ease;touch-action:pan-y;will-change:transform}
     .slide{min-width:85%;max-width:85%;border-radius:16px;overflow:hidden;border:1px solid rgba(212,175,55,.2);background:#120d10}
@@ -117,6 +125,19 @@
       radial-gradient(300px 160px at 20% 30%, rgba(212,175,55,.32) 0%, transparent 60%),
       radial-gradient(300px 160px at 80% 70%, rgba(177,15,46,.32) 0%, transparent 60%);}
     .slide .body{padding:12px}
+
+    /* Gambar NEWS: default (desktop/tablet) tetap penuh, mobile jadi lebih kecil */
+    /* default sudah pakai .shot: width:100%; aspect-ratio:9/16; height:auto */
+    @media (max-width:640px){
+      #news .slide .shot{
+        height: var(--news-shot-h-mobile);
+        width: auto;
+        aspect-ratio: 9/16;
+        object-fit: cover;
+        margin-inline: auto;
+        display: block;
+      }
+    }
 
     /* Floating arrows: slightly blurred & translucent */
     .arrow{
@@ -131,7 +152,7 @@
     .arrow--prev{left:8px}
     .arrow--next{right:8px}
     .arrow svg{width:18px;height:18px;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
-    .slider-nav{display:none} /* hide old nav buttons */
+    .slider-nav{display:none}
 
     /* Download bar */
     .download{padding:22px 0;background:linear-gradient(180deg,#151219,#0b0a0d)}
@@ -152,7 +173,7 @@
       <a class="logo-slot" href="#top" aria-label="66game home">
         <picture>
           <source srcset="static/logo-66game.webp" type="image/webp">
-          <img src="static/logo-66game.png" alt="66game logo" style="height:34px;width:auto">
+          <img src="static/logo-66game.png" alt="66game logo">
         </picture>
         <span class="brand-text">66game</span>
       </a>
@@ -209,7 +230,6 @@
 
         <div class="slider-wrap">
           <div class="slider" id="slider">
-            <!-- soft-blur floating arrows -->
             <button class="arrow arrow--prev" id="newsPrev" aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none"><path d="M14.5 5l-7 7 7 7" stroke="#2b0d11" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
@@ -218,7 +238,6 @@
             </button>
 
             <div class="slider-track" id="newsTrack">
-              <!-- 9:16 screenshots; fallback to gradient -->
               <article class="slide">
                 <img class="shot" src="static/screenshots/news1.jpg" alt="66game update 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="thumb" style="display:none"></div>
@@ -355,7 +374,7 @@
         currX = clientX;
         const dx = currX - startX;
         const maxLeft = 0, maxRight = -(slides.length-1)*width;
-        const pos = clamp(base + dx, maxRight-40, maxLeft+40); // small rubber band
+        const pos = clamp(base + dx, maxRight-40, maxLeft+40);
         track.style.transform = `translateX(${pos}px)`;
       }
       function end(){
